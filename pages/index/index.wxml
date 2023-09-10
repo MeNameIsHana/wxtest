@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+    
+    <view class="list">
+        <view class="lis" wx:for="{{list}}" wx:key="index" bindtap="toPage" data-i="{{item}}">
+            {{item.title}}
+        </view>
+    </view>
+
+</view>

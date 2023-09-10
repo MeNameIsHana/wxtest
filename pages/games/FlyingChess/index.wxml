@@ -1,0 +1,63 @@
+<view class="container">
+    <view class="site" id="site">
+        <view class="piece-home piece-home-red" style="width: {{home_w}};height: {{home_h}}"> 
+            <view class="piece-item" wx:for="{{home_piece.red}}" wx:for-index="i1" wx:key="{{i1}}" style="background-color: {{item.color}};">{{item.no}}</view>
+            <view wx:if="{{home_index == 0}}" class="active active1" style="width: {{home_w}};height: {{home_h}}">
+                <view></view><view></view><view></view><view></view>
+            </view>
+        </view>
+        <view class="piece-home piece-home-green" style="width: {{home_w}};height: {{home_h}}">
+            <view class="piece-item" wx:for="{{home_piece.green}}" wx:for-index="i2" wx:key="{{i2}}" style="background-color: {{item.color}};">{{item.no}}</view>
+            <view wx:if="{{home_index == 1}}" class="active active1" style="width: {{home_w}};height: {{home_h}}">
+                <view></view><view></view><view></view><view></view>
+            </view>
+        </view>
+        <view class="piece-home piece-home-yellow" style="width: {{home_w}};height: {{home_h}}">
+            <view class="piece-item" wx:for="{{home_piece.yellow}}" wx:for-index="i3" wx:key="{{i3}}" style="background-color: {{item.color}};">{{item.no}}</view>
+            <view wx:if="{{home_index == 2}}" class="active active1" style="width: {{home_w}};height: {{home_h}}">
+                <view></view><view></view><view></view><view></view>
+            </view>
+        </view>
+        <view class="piece-home piece-home-blue" style="width: {{home_w}};height: {{home_h}}">
+            <view class="piece-item" wx:for="{{home_piece.blue}}" wx:for-index="i4" wx:key="{{i4}}" style="background-color: {{item.color}};">{{item.no}}</view>
+            <view wx:if="{{home_index == 3}}" class="active active1" style="width: {{home_w}};height: {{home_h}}">
+                <view></view><view></view><view></view><view></view>
+            </view>
+        </view>
+
+        <view class="cell-box">
+            <view class="cell" wx:for="{{cell}}" wx:key="index" style="width: {{cell_w}};height: {{cell_h}};background-image: linear-gradient({{item.degNum}},{{item.backColor[0]}} 50%,{{item.backColor[1]}} 50%);" :class="">
+                <view wx:if="{{item && item.pieces.length != 0}}" class="piece-item" wx:for="{{item.pieces}}" wx:for-item="lis" style="background-color: {{lis.color}};">{{lis.no}}</view>
+                <!-- {{index}} -->
+            </view>
+        </view>
+
+        <!-- 摇骰 -->
+        <view class="btn" bindtap="getDice" wx:if="{{pieceOrder[home_index] == pieceLead.name}}">
+            摇骰
+        </view>
+
+        <!-- 选择移动棋子弹框 -->
+        <view class="sel_piece" wx:if="{{sel_piece_show}}">
+            <view class="title">请选择要移动的棋子</view>
+
+            <view class="main">
+              <radio-group bindchange="selPiece">
+                <label class="item" wx:if="{{pieceLead.homeNo != ''}}">
+                  <radio checked="true" value="-1"/>{{pieceLead.homeNo}}
+                </label>
+                <view class="item items" wx:if="{{ in_site_piece[pieceLead.name].length != 0 }}">
+                  <label wx:for="{{in_site_piece[pieceLead.name]}}" wx:key="{{key}}">
+                    <radio checked="{{pieceLead.homeNo == ''}}" value="{{key}}"/>{{item.no}}
+                  </label>
+                </view>
+              </radio-group>
+            </view>
+            
+            <view class="btns">
+              <button type="primary" bindtap="setSelPiece">确认</button>
+            </view>
+        </view>
+
+    </view>
+</view>

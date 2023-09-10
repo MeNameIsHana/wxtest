@@ -1,0 +1,215 @@
+/* pages/games/FlyingChess/index.wxss */
+.container {
+    padding: 0;
+}
+.site {
+    margin: 5vh auto;
+    width: 90vw;
+    height: 90vh;
+    /* border: 1px solid red; */
+    position: relative;
+}
+
+/* 棋子老家 */
+.site .piece-home {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 15rpx;
+    box-sizing: border-box;
+}
+
+.site .piece-home .active {
+    position: absolute;
+    overflow: hidden;
+}
+.site .piece-home .active1 {
+    top: 0;
+    left: 0;
+}
+.site .piece-home .active2 {
+    top: 0;
+    right: 0;
+}
+.site .piece-home .active3 {
+    bottom: 0;
+    left: 0;
+}
+.site .piece-home .active4 {
+    bottom: 0;
+    right: 0;
+}
+.site .piece-home .active view {
+    position: absolute;
+}
+.site .piece-home .active :nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    animation: run1 1s linear infinite;
+    /* animation-delay: 0s;  */
+    background: linear-gradient(to right, #fff, #acd, cyan);
+}
+.site .piece-home .active :nth-child(2) {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 2px;
+    animation: run2 1s linear infinite;
+    /* animation-delay: 1s;  */
+    background: linear-gradient(to bottom, #fff, #acd, cyan);
+}
+.site .piece-home .active :nth-child(3) {
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    animation: run3 1s linear infinite;
+    /* animation-delay: 2s;  */
+    background: linear-gradient(to right, #fff, #acd, cyan);
+}
+.site .piece-home .active :nth-child(4) {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2px;
+    animation: run4 1s linear infinite;
+    /* animation-delay: 3s;  */
+    background: linear-gradient(to top, #fff, #acd, cyan);
+}
+@keyframes run1 {
+    from {
+        transform: translateX(-100%)
+    }
+
+    to {
+        transform: translateX(100%)
+    }
+}
+@keyframes run2 {
+    from {
+        transform: translateY(-100%)
+    }
+
+    to {
+        transform: translateY(100%)
+    }
+}
+@keyframes run3 {
+    from {
+        transform: translateX(100%)
+    }
+
+    to {
+        transform: translateX(-100%)
+    }
+}
+@keyframes run4 {
+    from {
+        transform: translateY(100%)
+    }
+
+    to {
+        transform: translateY(-100%)
+    }
+}
+
+.site .piece-home-red {
+    top: 0;
+    left: 0;
+    background-color: #ee211a;
+}
+.site .piece-home-green {
+    top: 0;
+    right: 0;
+    background-color: #30a702;
+}
+.site .piece-home-blue {
+    bottom: 0;
+    left: 0;
+    background-color: #036fea;
+}
+.site .piece-home-yellow {
+    bottom: 0;
+    right: 0;
+    background-color: #f0e500;
+}
+.site .piece-home .piece-item {
+    margin: 1rpx 10rpx;
+}
+/* ******* */
+
+/* 棋子 */
+.site .piece-item {
+    width: 17px;
+    height: 17px;
+    border-radius: 100%;
+    border: 1px solid #000;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-size: 10rpx;
+}
+/* ****** */
+
+/* 每个格子 */
+.site .cell-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+.site .cell-box .cell {
+    box-sizing: border-box;
+    display: flex;
+    /* border: 1px solid #000; */
+}
+/* ****** */
+
+.site .btn {
+    position: absolute;
+    bottom: 80rpx;
+    right: 235rpx;
+    background-color: #FF6A6A;
+    color: #fff;
+    padding: 5rpx 10rpx;
+    border-radius: 5rpx;
+}
+
+/* 选择移动棋子弹框 */
+.sel_piece {
+    position: fixed;
+    top: calc((100vh - 200rpx) / 2);
+    left: calc((100vw - 300rpx) / 2);
+    width: 300rpx;
+    height: 200rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, .3);
+}
+.sel_piece .title {
+    margin-top: 10rpx;
+    text-align: center;
+     color: #333;
+}
+.sel_piece .main {
+  padding: 10rpx 30rpx 0;
+}
+.sel_piece .main .item {
+  display: block;
+  padding: 10rpx 0;
+  border-bottom: 1px solid #c8c8c8;
+}
+.sel_piece .main .items {
+  margin-right: 7rpx;
+}
+.sel_piece .main .item:last-child {
+  /* border: none; */
+}
+.sel_piece .btns {
+  margin-top: 20rpx;
+}
+/* 选择移动棋子弹框 */

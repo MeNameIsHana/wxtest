@@ -1,0 +1,17 @@
+/**index.wxss**/
+.container {
+    
+}
+.container .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container .list .lis {
+    padding: 30rpx 0;
+    width: 46%;
+    height: auto;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 15rpx;
+}
